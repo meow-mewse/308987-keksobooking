@@ -115,7 +115,6 @@ var showMap = function () {
   var map = document.querySelector('.map');
   return map.classList.remove('map--faded');
 };
-showMap();
 
 
 var createAds = function () {
@@ -150,7 +149,6 @@ var drawPins = function () {
   mapPins.appendChild(fragment);
   return fragment;
 };
-drawPins();
 
 var mapCardTemplate = document.querySelector('#card').content.querySelector('.map__card');
 var HOUSING_TYPE = {
@@ -187,7 +185,7 @@ var createCards = function () {
   var photoItem = photosList.querySelector('.popup__photo');
   var photoItemsFragment = document.createDocumentFragment();
 
-  for (var j = 0; j < ads[0].offer.photos.length; i++) {
+  for (var j = 0; j < ads[0].offer.photos.length; j++) {
     var innerPhotoItem = photoItem.cloneNode(true);
     innerPhotoItem.src = ads[0].offer.photos[j];
     photoItemsFragment.appendChild(innerPhotoItem);
@@ -205,4 +203,3 @@ var drawCards = function () {
   var mapFiltersContainer = map.querySelector('.map__filters-container');
   return map.insertBefore(mapCard, mapFiltersContainer);
 };
-drawCards();
