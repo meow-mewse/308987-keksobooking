@@ -45,8 +45,16 @@ var LOCATION = {
 };
 var ads = [];
 var countOfAds = 8;
+var map = document.querySelector('.map');
+var mapPins = document.querySelector('.map__pins');
 var PIN_WIDTH = 50;
 var PIN_HEIGHT = 70;
+var HOUSING_TYPE = {
+  'palace': 'Дворец',
+  'flat': 'Квартира',
+  'house': 'Дом',
+  'bungalo': 'Бунгало'
+};
 
 
 function getRange(min, max) {
@@ -114,7 +122,6 @@ var getAd = function () {
 };
 
 var showMap = function () {
-  var map = document.querySelector('.map');
   return map.classList.remove('map--faded');
 };
 
@@ -131,7 +138,6 @@ createAds();
 
 
 var drawPins = function () {
-  var mapPins = document.querySelector('.map__pins');
   var mapPinTemplate = document.querySelector('#pin').content.querySelector('.map__pin');
   var fragment = document.createDocumentFragment();
 
@@ -151,12 +157,6 @@ var drawPins = function () {
 };
 
 var mapCardTemplate = document.querySelector('#card').content.querySelector('.map__card');
-var HOUSING_TYPE = {
-  'palace': 'Дворец',
-  'flat': 'Квартира',
-  'house': 'Дом',
-  'bungalo': 'Бунгало'
-};
 
 var createCards = function () {
   mapCardTemplate.querySelector('.popup__title').textContent = ads[0].offer.title;
@@ -205,4 +205,4 @@ var drawCards = function () {
 };
 
 
-var mapPinMain = document
+var mapPinMain = map
