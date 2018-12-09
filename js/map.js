@@ -45,6 +45,8 @@ var LOCATION = {
 };
 var ads = [];
 var countOfAds = 8;
+var PIN_WIDTH = 50;
+var PIN_HEIGHT = 70;
 
 
 function getRange(min, max) {
@@ -135,10 +137,8 @@ var drawPins = function () {
 
   for (var j = 0; j < ads.length; j++) {
     var pinElement = mapPinTemplate.cloneNode(true);
-    var pinWidth = 50;
-    var pinHeight = 70;
-    pinElement.style.left = (ads[j].location.x - pinWidth / 2) + 'px';
-    pinElement.style.top = (ads[j].location.y - pinHeight) + 'px';
+    pinElement.style.left = (ads[j].location.x - PIN_WIDTH / 2) + 'px';
+    pinElement.style.top = (ads[j].location.y - PIN_HEIGHT) + 'px';
     pinElement.querySelector('img');
     var img = pinElement.querySelector('img');
     img.src = ads[j].author.avatar;
@@ -203,3 +203,6 @@ var drawCards = function () {
   var mapFiltersContainer = map.querySelector('.map__filters-container');
   return map.insertBefore(mapCard, mapFiltersContainer);
 };
+
+
+var mapPinMain = document
