@@ -47,6 +47,9 @@ var ads = [];
 var countOfAds = 8;
 var map = document.querySelector('.map');
 var mapPins = document.querySelector('.map__pins');
+var mainMapPin = mapPins.querySelector('.map__pin--main');
+var adForm = document.querySelector('.ad-form');
+var mapFilters = document.querySelector('.map__filters');
 var PIN_WIDTH = 50;
 var PIN_HEIGHT = 70;
 var HOUSING_TYPE = {
@@ -198,11 +201,14 @@ createCards();
 
 
 var drawCards = function () {
-  var map = document.querySelector('.map');
   var mapCard = mapCardTemplate.cloneNode(true);
   var mapFiltersContainer = map.querySelector('.map__filters-container');
   return map.insertBefore(mapCard, mapFiltersContainer);
 };
 
 
-var mapPinMain = map
+mainMapPin.addEventListener('mouseup', function () {
+  showMap();
+  adForm.classList.remove('ad-form--disabled');
+});
+
