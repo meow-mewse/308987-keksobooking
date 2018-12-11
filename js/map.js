@@ -49,6 +49,8 @@ var map = document.querySelector('.map');
 var mapPins = document.querySelector('.map__pins');
 var mainMapPin = mapPins.querySelector('.map__pin--main');
 var adForm = document.querySelector('.ad-form');
+var adFormElement= adForm.querySelectorAll('.ad-form__element');
+var adFormHeader= adForm.querySelectorAll('.ad-form-header');
 var mapFilters = document.querySelector('.map__filters');
 var PIN_WIDTH = 50;
 var PIN_HEIGHT = 70;
@@ -206,9 +208,13 @@ var drawCards = function () {
   return map.insertBefore(mapCard, mapFiltersContainer);
 };
 
+adFormHeader.setAttribute('disabled', 'disabled');
+adFormElement.setAttribute('disabled', 'disabled');
+
 
 mainMapPin.addEventListener('mouseup', function () {
   showMap();
   adForm.classList.remove('ad-form--disabled');
 });
+
 
