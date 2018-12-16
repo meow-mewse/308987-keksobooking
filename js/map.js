@@ -145,7 +145,6 @@ createAds();
 var mapCard = mapCardTemplate.cloneNode(true);
 
 var createCard = function (ad) {
-
   mapCard.querySelector('.popup__title').textContent = ad.offer.title;
   mapCard.querySelector('.popup__text--address').textContent = ad.offer.address;
   mapCard.querySelector('.popup__text--price').textContent = ad.offer.price + '₽/ночь';
@@ -205,19 +204,17 @@ var drawPins = function () {
   return fragment;
 };
 
+var drawCard = function (mapCard) {
+  var mapFiltersContainer = map.querySelector('.map__filters-container');
+  return map.insertBefore(mapCard, mapFiltersContainer);
+};
+
 mapPins.addEventListener('click', function (e) {
   if (e.target.classList.contains('pin')) {
     createCard(ads[e.target.id]);
   }
 });
 
-
-
-
-var drawCard = function (mapCard) {
-  var mapFiltersContainer = map.querySelector('.map__filters-container');
-  return map.insertBefore(mapCard, mapFiltersContainer);
-};
 
 for (var k = 0; k < adFormFieldset.length; k++) {
   adFormFieldset[k].setAttribute('disabled', 'disabled');
